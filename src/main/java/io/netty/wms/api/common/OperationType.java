@@ -4,6 +4,8 @@ import io.netty.wms.api.auth.AuthOperation;
 import io.netty.wms.api.auth.AuthOperationResult;
 import io.netty.wms.api.keepalive.KeepaliveOperation;
 import io.netty.wms.api.keepalive.KeepaliveOperationResult;
+import io.netty.wms.api.wms.WcsOperation;
+import io.netty.wms.api.wms.WcsOperationResult;
 import io.netty.wms.api.wms.WmsOperation;
 import io.netty.wms.api.wms.WmsOperationResult;
 
@@ -14,7 +16,9 @@ public enum OperationType {
 
     AUTH(1, AuthOperation.class, AuthOperationResult.class),
     KEEPALIVE(2, KeepaliveOperation.class, KeepaliveOperationResult.class),
-    ORDER(3, WmsOperation.class, WmsOperationResult.class);
+    WMS(3, WmsOperation.class, WmsOperationResult.class),
+    WCS(4, WcsOperation.class, WcsOperationResult.class);
+//    WCS(4,WcsOperation.class, WcsOperationResult.class);
 
     public int opCode;
     public Class<? extends Operation> operationClazz;

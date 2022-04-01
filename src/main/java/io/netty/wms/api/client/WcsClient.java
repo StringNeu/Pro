@@ -11,6 +11,7 @@ import io.netty.wms.api.client.codec.AgvFrameEncoder;
 import io.netty.wms.api.client.codec.AgvProtocoDecoder;
 import io.netty.wms.api.client.codec.AgvProtocoEncoder;
 import io.netty.wms.api.common.RequestMessage;
+import io.netty.wms.api.wms.WcsOperation;
 import io.netty.wms.api.wms.WmsOperation;
 import io.netty.wms.api.util.IdUtil;
 import io.netty.handler.logging.LogLevel;
@@ -19,7 +20,7 @@ import io.netty.handler.logging.LoggingHandler;
 import java.util.Date;
 import java.util.concurrent.ExecutionException;
 
-public class AgvClient {
+public class WcsClient {
 
     public static void main(String[] args) throws InterruptedException, ExecutionException {
         Bootstrap bootstrap = new Bootstrap();
@@ -42,10 +43,7 @@ public class AgvClient {
         sync.sync();
         for (int i = 10; i < 15; i++) {
             RequestMessage requestMessage = new RequestMessage(IdUtil.nextId(),
-                    new WmsOperation(i, "运送货物","jobCode" + i,"wareHouseCode" + i,
-                            "receiveAddress" + i,"roadwayCode" + i,"trayBarCode" + i
-                            ,"deliveryAddress" + i,1,
-                            "billCode" + i,"mesNo" + i,new Date()));
+                    new WcsOperation(i, "jobCode"+i,"rfid"+i,1,new Date(),new Date()));
             sync.channel().writeAndFlush(requestMessage);
         }
 
