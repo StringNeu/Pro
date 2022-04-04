@@ -38,7 +38,7 @@ public class WmsClient {
             }
         });
 
-        ChannelFuture sync = bootstrap.connect("127.0.0.1",9090);
+        ChannelFuture sync = bootstrap.connect("172.30.20.35",9090);
         sync.sync();
         for (int i = 10; i < 15; i++) {
             RequestMessage requestMessage = new RequestMessage(IdUtil.nextId(),

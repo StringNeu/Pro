@@ -63,10 +63,13 @@
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
+                <version>3.8.1</version>
             </plugin>
 
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.3.0</version>
                 <configuration>
                     <appendAssemblyId>false</appendAssemblyId>
                     <descriptorRefs>
@@ -79,6 +82,7 @@
                         </manifest>
                     </archive>
                 </configuration>
+
                 <executions>
                     <execution>
                         <id>make-assembly</id>
